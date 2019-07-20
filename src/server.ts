@@ -1,21 +1,22 @@
-
 import * as express  from 'express';
 import Middleware from './Middleware';
+import InstallMongoDB  from './MongoDB';
 import CatServices from './CatServices';
-import * as CatRepository from './CatServices/CatRepository';
+import { PORT } from './config';
 
 const app: express.Express = express();
 
 // plugin - middleware
 Middleware(app);
 
-// plugin - api
-CatServices(app, {
-    repo: CatRepository
-});
+// plugin - Database
 
+InstallMongoDB();
+
+// plugin - api
+CatServices(app)
 
 // run
-app.listen(3000, () => {
-    console.log('server running port 3000')
+app.listen(PORT, () => {
+    console.log(`server running port ${PORT}`)
 })

@@ -1,22 +1,23 @@
+import Cat from '../../MongoDB/orm/Cat';
 
+export const search = async () => {
 
-export const search = () => {
-    return 'Hello Iam maxter';
+    return await Cat.find();
 }
 
-export const get = (id: any) => {
-    return `Hello Cat ${id}`;
+export const get =  async (id: any) => {
+    return await Cat.findById(id);
 }
 
-export const create = () => {
-    return 'the cat created successfully!';
+export const create = async (data: any) => {
+    return await Cat.create(data);
 }
 
 
-export const update = (id: any, data: any) => {
-    return data;
+export const update = async (id: any, data: any) => {
+    return await Cat.findByIdAndUpdate(id, data);
 }
 
-export const remove = (id: any) => {
-    return `the cat ${id} removed successfully`;
+export const remove = async (id: any) => {
+    return await Cat.findByIdAndRemove(id);
 }
