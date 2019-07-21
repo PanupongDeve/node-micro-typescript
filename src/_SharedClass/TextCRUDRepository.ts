@@ -1,12 +1,7 @@
-import CRUDRepository from './CRUDRepository'
+import ICRUDRepository from '../_SharedInterFaces/ICRUDRepository';
 
-class TextRepository extends CRUDRepository {
+class TextCRUDRepository implements ICRUDRepository {
   
-    constructor(model: any) {
-        super()
-        
-    }
-
     public search = () => {
 
         return 'Search Cats'
@@ -30,4 +25,4 @@ class TextRepository extends CRUDRepository {
 }
 
 
-export default TextRepository;
+export default TextCRUDRepository;

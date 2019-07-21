@@ -1,10 +1,9 @@
-import CRUDRepository from './CRUDRepository';
+import ICRUDRepository from '../_SharedInterFaces/ICRUDRepository';
 
-class MongoRepository extends CRUDRepository {
+class MongoCRUDRepository implements ICRUDRepository {
     private model: any;
 
     constructor(model: any) {
-        super()
         this.model = model
     }
 
@@ -31,4 +30,4 @@ class MongoRepository extends CRUDRepository {
 }
 
 
-export default MongoRepository;
+export default MongoCRUDRepository;

@@ -1,5 +1,6 @@
 import MongoCustomRepository from '../CustomRepository/MongoCustomRepository';
 import TextCustomRepository from '../CustomRepository/TextCustomRepository';
+import ICustomRepository from '../ICustomRepository';
 
 class CustomRepositoryFactory {
     private static instance: CustomRepositoryFactory;
@@ -18,13 +19,11 @@ class CustomRepositoryFactory {
        
 
 
-    getSayHello(type: string): any {
+    getCustomRepository(type: string): ICustomRepository {
         if (type === 'mongo') {
-            const mongoCustomRepository = new MongoCustomRepository();
-            return mongoCustomRepository.sayHello();
+            return new MongoCustomRepository();
         } else {
-            const textCustomRepository = new TextCustomRepository();
-            return textCustomRepository.sayHello();
+            return new TextCustomRepository();
         }
     }
 }
