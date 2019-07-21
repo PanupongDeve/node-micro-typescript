@@ -7,24 +7,24 @@ class Repository implements CRUDRepository {
         this.model = model
     }
 
-    search = async () => {
+    public search = async () => {
 
         return await this.model.find();
     }
 
-    get = async (id: any) => {
+    public get = async (id: any) => {
         return await this.model.findById(id);
     }
 
-    create = async (data: any) => {
+    public create = async (data: any) => {
         return await this.model.create(data);
     }
 
-    update = async (id: any, data: any) => {
+    public update = async (id: any, data: any) => {
         return await this.model.findByIdAndUpdate(id, data);
     }
     
-    remove = async (id: any) => {
+    public remove = async (id: any) => {
         return await this.model.findByIdAndRemove(id);
     }
 }
