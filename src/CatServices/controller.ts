@@ -1,14 +1,14 @@
 import { Express,  Request, Response } from 'express';
-import CatRepository from './CatRepository';
+import Repoistory from './CatRepository/Repoistory';
 
 interface IOptions {
-    repo: CatRepository;
+    repo: Repoistory;
 }
 
 
 export default (app:Express, options?:IOptions) => {
     const { repo } = options;
-    if (!(repo instanceof CatRepository)) {
+    if (!(repo instanceof Repoistory)) {
         // tslint:disable-next-line: no-console
         console.log('\x1b[31m%s\x1b[0m', '[Error]', 'Respository must included');
     }

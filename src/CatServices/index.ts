@@ -1,9 +1,9 @@
 import { Express } from 'express';
-import CatController from './controller';
-import CatRepository from './CatRepository';
+import Controller from './controller';
+import Repository from './CatRepository/Repoistory';
 
 export default (app: Express) => {
-    CatController(app, {
-        repo: CatRepository.getInstance()
+    Controller(app, {
+        repo: Repository.getInstance()
     })
 }

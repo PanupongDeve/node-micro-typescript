@@ -4,7 +4,7 @@ import TextRepository from '../_SharedClass/TextRepository';
 
 
 class RepositoryFactory {
-    getRepository(repositoryType: string): any {
+    getCRUDRepository(repositoryType: string): any {
         if (repositoryType === 'mongo') {
             return MongoDBRepository;
         }
