@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser';
 const cookieSession = require('cookie-session');
 
 export default (app: Express) => {
+     // tslint:disable-next-line: no-console
     console.log('connect middleware successfully!');
     app.use(cors());
     app.use(helmet());

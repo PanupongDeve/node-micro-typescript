@@ -15,7 +15,6 @@ export default (app:Express, options?:IOptions) => {
     });
 
     app.post('/api/cats', async (req: Request, res: Response) => {
-        console.log(req.body);
         const responseData = await repo.create(req.body);
         res.json(responseData);
     });
