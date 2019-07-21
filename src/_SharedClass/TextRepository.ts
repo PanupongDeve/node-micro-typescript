@@ -3,10 +3,6 @@ import CRUDRepository from '../_SharedInterFaces/CRUDRepository'
 class Repository implements CRUDRepository {
   
 
-    constructor() {
-        
-    }
-
     search = () => {
 
         return 'Search Cats'
