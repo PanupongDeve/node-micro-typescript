@@ -1,9 +1,10 @@
-import CRUDRepository from '../_SharedInterFaces/CRUDRepository'
+import CRUDRepository from './CRUDRepository';
 
-class MongoRepository implements CRUDRepository {
+class MongoRepository extends CRUDRepository {
     private model: any;
 
     constructor(model: any) {
+        super()
         this.model = model
     }
 

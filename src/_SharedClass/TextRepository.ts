@@ -1,7 +1,11 @@
-import CRUDRepository from '../_SharedInterFaces/CRUDRepository'
+import CRUDRepository from './CRUDRepository'
 
-class TextRepository implements CRUDRepository {
+class TextRepository extends CRUDRepository {
   
+    constructor(model: any) {
+        super()
+        
+    }
 
     public search = () => {
 

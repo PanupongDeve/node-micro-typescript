@@ -1,6 +1,6 @@
 import MongoDBRepository from '../_SharedClass/MongoDBRepository';
 import TextRepository from '../_SharedClass/TextRepository';
-
+// import CRUDRepository from '../_SharedClass/CRUDRepository';
 
 class RepositoryFactory {
     private static instance: RepositoryFactory;

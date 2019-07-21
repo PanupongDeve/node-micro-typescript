@@ -1,4 +1,4 @@
-export default interface CRUDRepository {
+export default interface ICRUDRepository {
     search(): any;
     get(id: any): any;
     create(data: any): any;
