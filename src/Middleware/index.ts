@@ -7,7 +7,7 @@ const cookieSession = require('cookie-session');
 
 export default (app: Express) => {
      // tslint:disable-next-line: no-console
-    console.log('connect middleware successfully!');
+    console.log('\x1b[32m%s\x1b[0m', '[Success]','connect middleware successfully!');
     app.use(cors());
     app.use(helmet());
     app.use(

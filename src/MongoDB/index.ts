@@ -8,7 +8,7 @@ export default (mongoUri) => {
             console.log(err);
         } else {
              // tslint:disable-next-line: no-console
-            console.log('connect database successfully!');
+            console.log('\x1b[32m%s\x1b[0m', '[Success]','connect database successfully!');
         }
     })
 }

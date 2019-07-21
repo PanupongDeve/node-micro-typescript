@@ -19,5 +19,5 @@ CatServices(app)
 // run
 app.listen(PORT, () => {
     // tslint:disable-next-line: no-console
-    console.log(`server running port ${PORT}`)
+    console.log('\x1b[32m%s\x1b[0m', '[Success]',`server running port ${PORT}`)
 })
