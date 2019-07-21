@@ -1,6 +1,6 @@
 import CRUDRepository from '../_SharedInterFaces/CRUDRepository'
 
-class Repository implements CRUDRepository {
+class TextRepository implements CRUDRepository {
   
 
     public search = () => {
@@ -26,4 +26,4 @@ class Repository implements CRUDRepository {
 }
 
 
-export default Repository;
+export default TextRepository;

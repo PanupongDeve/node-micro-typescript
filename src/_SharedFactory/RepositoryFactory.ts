@@ -1,6 +1,5 @@
 import MongoDBRepository from '../_SharedClass/MongoDBRepository';
 import TextRepository from '../_SharedClass/TextRepository';
-// import CRUDRepository from '../_SharedInterFaces/CRUDRepository';
 
 
 class RepositoryFactory {
@@ -17,9 +16,9 @@ class RepositoryFactory {
 
         return RepositoryFactory.instance;
     }
-       
+    
 
-    public getCRUDRepository(repositoryType: string): any {
+    public getCRUDRepository(repositoryType: string): any{
         if (repositoryType === 'mongo') {
             return MongoDBRepository;
         }

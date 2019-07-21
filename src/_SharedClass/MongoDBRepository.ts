@@ -1,6 +1,6 @@
 import CRUDRepository from '../_SharedInterFaces/CRUDRepository'
 
-class Repository implements CRUDRepository {
+class MongoRepository implements CRUDRepository {
     private model: any;
 
     constructor(model: any) {
@@ -30,4 +30,4 @@ class Repository implements CRUDRepository {
 }
 
 
-export default Repository;
+export default MongoRepository;
