@@ -1,3 +1,3 @@
 export default interface ICustomRepository{ 
-    seeHello(): any
+    sayHello(): any
 }
