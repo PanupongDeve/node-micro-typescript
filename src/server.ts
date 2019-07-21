@@ -1,6 +1,6 @@
 import * as express  from 'express';
-import Middleware from './Middleware';
-import InstallMongoDB  from './MongoDB';
+import Middleware from './_Middleware';
+import InstallMongoDB  from './_MongoDB';
 import CatServices from './CatServices';
 import { PORT, DB_MONGO } from './config';
 

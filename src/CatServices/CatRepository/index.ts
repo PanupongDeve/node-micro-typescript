@@ -1,39 +1,31 @@
-import Cat from '../../MongoDB/orm/Cat';
+import Cat from '../../_MongoDB/orm/Cat';
 import ICatRepository from './ICatRepository';
+import RepositoryFactory from '../../_SharedFactory/RepositoryFactory';
 
-class CatRepository implements ICatRepository {
+const repositoryClassFactory = new RepositoryFactory();
+
+// tslint:disable-next-line: variable-name
+const Repository = repositoryClassFactory.getRepository('mongo');
+
+
+class CatRepository extends Repository implements ICatRepository {
     private static instance: CatRepository;
 
-    private constructor() {
+    private constructor(model: any) {
+       super(model)
     }
 
     static getInstance(): CatRepository {
         if (!CatRepository.instance) {
-            CatRepository.instance = new CatRepository();
+            CatRepository.instance = new CatRepository(Cat);
         }
     
         return CatRepository.instance;
     }
-    
-    search = async () => {
 
-        return await Cat.find();
-    }
-
-    get = async (id: any) => {
-        return await Cat.findById(id);
-    }
-
-    create = async (data: any) => {
-        return await Cat.create(data);
-    }
-
-    update = async (id: any, data: any) => {
-        return await Cat.findByIdAndUpdate(id, data);
-    }
-    
-    remove = async (id: any) => {
-        return await Cat.findByIdAndRemove(id);
+    seeMaxter() {
+        // tslint:disable-next-line: no-console
+        console.log('Hello MaxTer');
     }
     
 }

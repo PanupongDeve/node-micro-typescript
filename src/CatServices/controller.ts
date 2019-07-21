@@ -1,6 +1,10 @@
 import { Express,  Request, Response } from 'express';
 import CatRepository from './CatRepository';
-import IOptions from './IOptions';
+
+interface IOptions {
+    repo: CatRepository;
+}
+
 
 export default (app:Express, options?:IOptions) => {
     const { repo } = options;
@@ -11,6 +15,7 @@ export default (app:Express, options?:IOptions) => {
 
 
     app.get('/api/cats', async (req: Request, res: Response) => {
+        repo.seeMaxter();
         const responseData = await repo.search();
         res.json(responseData);
     });

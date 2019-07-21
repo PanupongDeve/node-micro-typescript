@@ -1,6 +1,6 @@
 import * as express  from 'express';
 import CatServices from '../CatServices';
-import InstallMongoDB from '../MongoDB';
+import InstallMongoDB from '../_MongoDB';
 import { DB_MONGO } from '../config';
 
 const app: express.Express = express();
