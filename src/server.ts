@@ -2,7 +2,9 @@ import * as express  from 'express';
 import Middleware from './_Middleware';
 import InstallMongoDB  from './_MongoDB';
 import CatServices from './CatServices';
-import LocalAuthServices from './LocalAuthServices';
+import AdminAuth from './AdminAuth';
+import LocalAuthServices from './_LocalAuthServices';
+import Notfound from './_Notfound';
 import { PORT, DB_MONGO } from './config';
 
 const app: express.Express = express();
@@ -17,7 +19,8 @@ InstallMongoDB(DB_MONGO.uri);
 // plugin - api
 LocalAuthServices(app);
 CatServices(app);
-
+AdminAuth(app);
+Notfound(app);
 // run
 app.listen(PORT, () => {
     // tslint:disable-next-line: no-console
