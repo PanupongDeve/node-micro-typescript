@@ -2,6 +2,7 @@ import * as express  from 'express';
 import Middleware from './_Middleware';
 import InstallMongoDB  from './_MongoDB';
 import CatServices from './CatServices';
+import LocalAuthServices from './LocalAuthServices';
 import { PORT, DB_MONGO } from './config';
 
 const app: express.Express = express();
@@ -14,7 +15,8 @@ Middleware(app);
 InstallMongoDB(DB_MONGO.uri);
 
 // plugin - api
-CatServices(app)
+LocalAuthServices(app);
+CatServices(app);
 
 // run
 app.listen(PORT, () => {

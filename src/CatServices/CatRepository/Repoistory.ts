@@ -1,4 +1,5 @@
 import Cat from '../../_MongoDB/orm/Cat';
+import ICRUDRepository from '../../_SharedInterFaces/ICRUDRepository'
 import ICustomRepository from './ICustomRepository';
 import RepositoryFactory from '../../_SharedFactory/RepositoryFactory';
 import CustomRepositoryFactory from './CustomRepositoryFactory/CustomRepositoryFactory';
@@ -6,15 +7,18 @@ import CustomRepositoryFactory from './CustomRepositoryFactory/CustomRepositoryF
 const repositoryClassFactory = RepositoryFactory.getInstance();
 const customRepositoryFactory = CustomRepositoryFactory.getInstance();
 
-// tslint:disable-next-line: variable-name
-const CRUDRepository = repositoryClassFactory.getCRUDRepository('mongo');
 
 
-class Repository extends CRUDRepository implements ICustomRepository{
+class Repository implements ICRUDRepository, ICustomRepository {
     private static instance: Repository;
-
+    // tslint:disable-next-line: variable-name
+    private CRUDRepository: ICRUDRepository;
+    private customRepository: ICustomRepository;
+  
     private constructor(model: any) {
-       super(model);
+
+        this.CRUDRepository = repositoryClassFactory.getCRUDRepository('mongo', model);
+        this.customRepository = customRepositoryFactory.getCustomRepository('mongo');
     }
 
     static getInstance(): Repository{
@@ -25,8 +29,28 @@ class Repository extends CRUDRepository implements ICustomRepository{
         return Repository.instance;
     }
 
+    search() {
+        return this.CRUDRepository.search();
+    }
+
+    get(id: any) {
+        return this.CRUDRepository.get(id);
+    }
+
+    create(data: any) {
+        return this.CRUDRepository.create(data);
+    }
+
+    update(id: any, data: any) {
+        return this.CRUDRepository.update(id, data);
+    }
+
+    remove(id: any) {
+        return this.CRUDRepository.remove(id);
+    }
+
     sayHello() {
-        const text = customRepositoryFactory.getSayHello('mongo');
+        const text = this.customRepository.sayHello();
         // tslint:disable-next-line: no-console
         console.log(text);
     }

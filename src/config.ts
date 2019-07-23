@@ -6,3 +6,5 @@ export const DB_MONGO = {
 
 export const PORT = process.env.PORT || 3000;
 
+export const rootPath = __dirname;
+

@@ -1,0 +1,15 @@
+.btn-create-flex {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: flex;
+    justify-content: flex-end
+}
+
+.table-header-right {
+    text-align: right;
+}
+
+.td-right {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>RegistrationForm_v10 by Colorlib</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="../../../auth/fonts/linearicons/style.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="../../../auth/css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<img src="../../../auth/images/image-1.png" alt="" class="image-1">
+				<form action="/auth/register" method="POST">
+					<input type="hidden" name="_csrf" value="<%=csrfToken%>">
+					<h3>New Account?</h3>
+					<div class="form-holder">
+						<span class="lnr lnr-user"></span>
+						<input type="text" name="username" class="form-control" placeholder="Username" value="<%= (oldData) ? oldData.username: ''%>" required>
+					</div>
+					<%# <div class="form-holder">
+						<span class="lnr lnr-phone-handset"></span>
+						<input type="text" class="form-control" placeholder="Phone Number">
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						<input type="text" class="form-control" placeholder="Mail">
+					</div> %>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" name="password" value="<%= (oldData) ? oldData.password: ''%>" class="form-control" placeholder="Password" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" name="passwordConfirm" value="<%= (oldData) ? oldData.passwordConfirm: ''%>" class="form-control" placeholder="Confirm Password" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="text" name="scode" value="<%= (oldData) ? oldData.scode: ''%>" class="form-control" placeholder="Secret code" required>
+					</div>
+					<button>
+						<span>Register</span>
+					</button>
+				</form>
+				<img src="../../../auth/images/image-2.png" alt="" class="image-2">
+			</div>
+			
+		</div>
+		
+		<script src="../../../auth/js/jquery-3.3.1.min.js"></script>
+		<script src="../../../auth/js/main.js"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

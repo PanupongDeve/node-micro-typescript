@@ -1,7 +1,6 @@
-import MongoDBRepository from '../_SharedClass/MongoDBRepository';
-import TextRepository from '../_SharedClass/TextRepository';
-
-
+import MongoDBCRUDRepository from '../_SharedClass/MongoDBCRUDRepository';
+import TextCRUDRepository from '../_SharedClass/TextCRUDRepository';
+import ICRUDRepository from '../_SharedInterFaces/ICRUDRepository'
 
 class RepositoryFactory {
     private static instance: RepositoryFactory;
@@ -17,14 +16,14 @@ class RepositoryFactory {
 
         return RepositoryFactory.instance;
     }
-       
+    
 
-    getCRUDRepository(repositoryType: string): any {
+    public getCRUDRepository(repositoryType: string, model: any): ICRUDRepository {
         if (repositoryType === 'mongo') {
-            return MongoDBRepository;
+            return new MongoDBCRUDRepository(model);
         }
 
-        return TextRepository;
+        return new TextCRUDRepository();
     }
 }
 

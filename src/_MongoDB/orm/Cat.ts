@@ -1,9 +1,12 @@
 import * as mongoose from 'mongoose';
+import mongoosePagination from '../plugin/mongoosePagination';
 
-const  CatSchema = new mongoose.Schema({
+const catSchema = new mongoose.Schema({
     name: String
-  });
+});
 
-const Cat = mongoose.model('Cat', CatSchema);
+catSchema.plugin(mongoosePagination);
 
-export default Cat;
+const cat = mongoose.model('Cat', catSchema);
+
+export default cat;
