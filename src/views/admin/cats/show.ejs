@@ -1,0 +1,114 @@
+
+<% include ../partials/header %>
+<body class="">
+  <div class="wrapper ">
+   <% include ../partials/sidebar %>
+    <div class="main-panel">
+        <% include ../partials/navbar %>
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Cats</h4>
+                  <p class="card-category">create update and delete cats</p>
+                </div>
+                <div class="card-body table-responsive">
+
+                <% if (notification.successMsg) {%>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>success!</strong> <%= notification.successMsg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <% } %>
+
+                <% if (notification.errorMsg) {%>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>error!</strong> <%= notification.errorMsg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <% } %>
+
+
+                
+                  <div class="row btn-create-flex">
+                      <a href="/admin/cats/create" class="btn btn-success">
+                          <i class="fa fa-plus" aria-hidden="true"></i> Add
+                      </a>
+                  </div>
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>NO.</th>
+                      <th>Title</th>
+                      <th class="table-header-right">Actions</th>
+                    </thead>
+                    <tbody>
+                      <% cats.forEach( (cat, index)=> { %>
+                          <tr>
+                            <td><%= index + (currentPage-1)*10 + 1 %></td>
+                            <td><%= cat.title %></td>
+                             <td class="td-right">
+                                <a href="/admin/cats/<%= cat.id %>/edit" class="btn btn-warning btn-sm">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> Update
+                                </a>
+                                <form action="/admin/cats/<%= cat.id %>/delete" method="POST" >
+                                  <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i> delete
+                                  </button>
+                                </form>
+                            </td>
+                          </tr>
+                      <% }) %>
+  
+                    </tbody>
+                  </table>
+                  <% if (paginateList.length > 1) {%>
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item <%= (currentPage === 1) ? 'disabled' : '' %>">
+                            <a class="page-link" href="/admin/cats/show?currentPage=<%=  currentPage-1 %>&totalPages=<%=  totalPage %>">Previous</a>
+                            <% paginateList.forEach((page) => { %>
+                              <% if (page === currentPage) {%>
+                                   <li class="page-item active">
+                                    <span class="page-link">
+                                        <%= page %>
+                                        <span class="sr-only">(current)</span>
+                                    </span>
+                                    </li>
+
+                              <% } else if (page === '...') {%>
+                                <li class="page-item"><a class="page-link" style="cursor: default;"><%= page %></a></li>
+
+                              <% } else {%>
+                                <li class="page-item"><a class="page-link" href="/admin/cats/show?currentPage=<%=  page %>&totalPages=<%=  totalPage %>"><%= page %></a></li>
+                              <% } %>
+                              
+                            <% })%>
+                            <li class="page-item <%= (currentPage === totalPage) ? 'disabled' : '' %>">
+                            <a class="page-link" href="/admin/cats/show?currentPage=<%=  currentPage+1 %>&totalPages=<%=  totalPage %>">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                  <% } %>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% include ../partials/footer %>
+    </div>
+  </div>
+ <% include ../partials/configPlugin %>
+  <% include ../partials/core-js %>
+
+</body>
+
+</html>

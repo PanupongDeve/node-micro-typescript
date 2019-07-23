@@ -1,0 +1,57 @@
+
+<% include ../partials/header %>
+<body class="">
+  <div class="wrapper ">
+   <% include ../partials/sidebar %>
+    <div class="main-panel">
+        <% include ../partials/navbar %>
+      <div class="content">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Cats</h4>
+                  <p class="card-category">create update and delete cats</p>
+                </div>
+                <div class="card-body">
+                  <div class="row btn-create-flex">
+                    <a href="/admin/cats/show" class="btn btn-success">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                    </a>
+                 </div>
+                  <div class="row">
+                    <div class="offset-md-1 col-md-4 col-sm-12">
+                      <form action="/admin/cats/create" method="POST">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i class="material-icons">group</i>
+                                  </span>
+                                </div>
+                                <input type="text" class="form-control" name="title" placeholder="title">
+                              </div>
+                            </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% include ../partials/footer %>
+    </div>
+  </div>
+ <% include ../partials/configPlugin %>
+  <% include ../partials/core-js %>
+
+</body>
+
+</html>
