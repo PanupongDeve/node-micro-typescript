@@ -1,11 +1,6 @@
 :80, :443 {
 	
-	proxy / node:3000  {
-		header_upstream Host {host}
-		header_upstream X-Real-IP {remote}
-		header_upstream X-Forwarded-Proto {scheme}
-	}
+	proxy / node:3000
 	gzip
-	log /var/log/caddy.log
- 	
+	
 }
