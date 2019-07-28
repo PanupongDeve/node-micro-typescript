@@ -6,6 +6,7 @@ import * as compression from 'compression';
 import * as bodyParser from 'body-parser';
 import * as methodOverride from 'method-override';
 import * as cookieParser from 'cookie-parser';
+import AuthMidleware from '../_LocalAuthServices/AuthMiddleware/AuthMidleware';
 
 import { rootPath } from '../config';
 
@@ -13,6 +14,7 @@ import { rootPath } from '../config';
 const expressSanitizer = require('express-sanitizer');
 const cookieSession = require('cookie-session');
 
+const authMidleware = AuthMidleware.getInstance();
 
 const day: number = 24 * 60 * 60 * 1000;
 
@@ -37,4 +39,5 @@ export default (app: Express) => {
     app.use(expressSanitizer());
     app.use(methodOverride('_method'));
     app.use(compression());
+    app.use(authMidleware.checkAuth);
 }

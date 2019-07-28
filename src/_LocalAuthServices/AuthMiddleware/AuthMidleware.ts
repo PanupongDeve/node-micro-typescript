@@ -2,6 +2,21 @@ import { Request, Response, NextFunction } from 'express';
 import IAuthMiddleware from './IAuthMiddleware';
 
 export default class AuthMiddleware implements IAuthMiddleware {
+    private static instance: AuthMiddleware;
+
+    private constructor() {
+        
+     }
+
+    static getInstance(): AuthMiddleware{
+        if (!AuthMiddleware.instance) {
+            AuthMiddleware.instance = new AuthMiddleware();
+        }
+
+        return AuthMiddleware.instance;
+    }
+
+
     checkAuth = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         if (req.session.user) {
             res.locals.user = req.session.user;
