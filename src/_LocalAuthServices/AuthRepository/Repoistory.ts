@@ -20,12 +20,12 @@ class Repository implements ICustomRepository {
         return Repository.instance;
     }
 
-    public login(username: string, password: string) {
-        return this.customRepository.login(username, password)
+    public findUserByUsername(username: string) {
+        return this.customRepository.findUserByUsername(username);
     }
 
-    public register(username: string, password: string) {
-        return this.customRepository.register(username, password);
+    public register = async (username: string, password: string) => {
+        return await this.customRepository.register(username, password);
     }
     
 }

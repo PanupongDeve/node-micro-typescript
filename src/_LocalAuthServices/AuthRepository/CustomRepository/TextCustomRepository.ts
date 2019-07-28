@@ -2,7 +2,7 @@ import ICustomRepository from '../ICustomRepository';
 
 class TextCustomRepository implements ICustomRepository {
 
-    login(username: string, password: string) {
+    findUserByUsername(username: string) {
         return 'Login Form Text Repository';
     }
 
