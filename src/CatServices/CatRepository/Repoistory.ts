@@ -1,7 +1,7 @@
 import Cat from '../../_MongoDB/orm/Cat';
-import ICRUDRepository from '../../_SharedInterFaces/ICRUDRepository'
+import ICRUDRepository from '../../_Shared/CRUDRepository/ICRUDRepository'
 import ICustomRepository from './ICustomRepository';
-import RepositoryFactory from '../../_SharedFactory/RepositoryFactory';
+import RepositoryFactory from '../../_Shared/CRUDRepository/RepositoryFactory';
 import CustomRepositoryFactory from './CustomRepositoryFactory/CustomRepositoryFactory';
 
 const repositoryClassFactory = RepositoryFactory.getInstance();

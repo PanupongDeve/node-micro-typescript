@@ -1,6 +1,6 @@
-import MongoDBCRUDRepository from '../_SharedClass/MongoDBCRUDRepository';
-import TextCRUDRepository from '../_SharedClass/TextCRUDRepository';
-import ICRUDRepository from '../_SharedInterFaces/ICRUDRepository'
+import MongoDBCRUDRepository from './Repository/MongoDBCRUDRepository';
+import TextCRUDRepository from './Repository/TextCRUDRepository';
+import ICRUDRepository from './ICRUDRepository'
 
 class RepositoryFactory {
     private static instance: RepositoryFactory;

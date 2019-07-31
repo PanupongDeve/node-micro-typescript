@@ -1,4 +1,4 @@
-import ICRUDRepository from '../_SharedInterFaces/ICRUDRepository';
+import ICRUDRepository from '../ICRUDRepository';
 
 class MongoCRUDRepository implements ICRUDRepository {
     private model: any;

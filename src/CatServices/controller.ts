@@ -15,7 +15,6 @@ export default (app:Express, options?:IOptions) => {
 
 
     app.get('/api/cats', async (req: Request, res: Response) => {
-        repo.sayHello();
         const responseData = await repo.search();
         res.json(responseData);
     });
