@@ -5,7 +5,7 @@ import CatServices from './CatServices';
 import LocalAuthServices from './_LocalAuthServices';
 import Notfound from './_Notfound';
 import Homepage from './Homepage';
-import { PORT, DB_MONGO } from './config';
+import { DB_MONGO } from './config';
 
 const app: express.Express = express();
 
@@ -23,7 +23,5 @@ CatServices(app);
 
 Notfound(app);
 // run
-app.listen(PORT, () => {
-    // tslint:disable-next-line: no-console
-    console.log('\x1b[32m%s\x1b[0m', '[Success]',`server running port ${PORT}`)
-})
+
+export default app;
