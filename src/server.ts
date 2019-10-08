@@ -1,10 +1,7 @@
 import * as express  from 'express';
-import Middleware from './_Middleware';
-import InstallMongoDB  from './_MongoDB';
-import CatServices from './CatServices';
-import LocalAuthServices from './_LocalAuthServices';
-import Notfound from './_Notfound';
-import Homepage from './Homepage';
+import Middleware from './middleware';
+import InstallMongoDB  from './model/mongoDB';
+import controller from './controller';
 import { DB_MONGO } from './config';
 
 const app: express.Express = express();
@@ -16,12 +13,9 @@ Middleware(app);
 
 InstallMongoDB(DB_MONGO.uri);
 
-// plugin - api
-Homepage(app);
-LocalAuthServices(app);
-CatServices(app);
+// plugin - controller
+controller(app);
 
-Notfound(app);
 // run
 
 export default app;
